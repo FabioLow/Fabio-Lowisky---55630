@@ -1,9 +1,5 @@
 Hola, soy Fabio, este es mi proyecto de Catálogo de Películas, Series, Libros y Cómics
 
-Antes que nada me gustaria decir que la calidad del profesorado fue excelente, se entendio todo y muy bien, gracias Diego y Norman.
-Lamentablemente a mediados del cursado tuve un fallecimiento de un familiar que me afecto mucho y me saco tiempo, no pude darle la atencion que me hubiera gustado, me da bronca ver lo que era mi entrega dos y lo que estoy entregando ahora, pero bueno, la proxima
-sera.
-
 La idea este proyecto es proporcionar a los usuarios una plataforma para mantener un catálogo personalizado de sus películas, series, libros y cómics favoritos. Los usuarios podrán registrar y gestionar sus elementos multimedia, ver detalles, buscar y actualizar información según sus necesidades.
 
 ## Descripción de Modelos
@@ -44,3 +40,7 @@ El modelo `Comic` representa un cómic en el catálogo. Los campos incluidos son
 ## Acceso al Panel de Administración
 user = admin1234
 pass = admin1234
+
+# Video explicativo: 
+Link de Drive:
+https://drive.google.com/file/d/1i_uOhSaRHdKQUpq30_wzLC3WTuEuRsaN/view?usp=drive_link
