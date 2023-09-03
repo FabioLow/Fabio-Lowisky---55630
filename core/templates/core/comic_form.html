@@ -1,0 +1,15 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Crear Cómic{% endblock %}
+
+{% block content %}
+    <h1>Crear Cómic</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Guardar</button>
+    </form>
+
+    <a href="{% url 'comic_list' %}">Volver a la lista de cómics</a>
+{% endblock %}

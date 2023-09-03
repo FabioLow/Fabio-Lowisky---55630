@@ -1,0 +1,13 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Detalle de Cómic - {{ comic.title }}{% endblock %}
+
+{% block content %}
+    <h1>{{ comic.title }}</h1>
+    <p>Descripción: {{ comic.description }}</p>
+    <p>Año de lanzamiento: {{ comic.release_year }}</p>
+
+    <a href="{% url 'comic_list' %}">Volver a la lista de cómics</a>
+    <a href="{% url 'comic_update' pk=comic.pk %}">Editar cómic</a>
+    <a href="{% url 'comic_delete' pk=comic.pk %}">Eliminar cómic</a>
+{% endblock %}

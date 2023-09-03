@@ -1,0 +1,35 @@
+<!-- core/templates/core/movie_list.html -->
+
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Lista de Películas{% endblock %}
+
+{% block content %}
+    <h1>Lista de Películas:</h1>
+    <!-- Movie search form -->
+    <form method="GET" action="{% url 'movie_list' %}">
+        <input type="text" name="q" placeholder="Buscar películas">
+        <button type="submit">Buscar</button>
+    </form>
+
+    <!-- Resultados de busqueda -->
+    {% if request.GET.q %}
+        <p>{{ movies|length }} resultados para "{{ request.GET.q }}"</p>
+    {% endif %}
+
+    <ul>
+        {% for movie in movies %}
+            <li>
+                <a href="{% url 'movie_detail' pk=movie.pk %}">{{ movie.title }}</a>
+                - Año de lanzamiento: {{ movie.release_year }}
+                <a href="{% url 'movie_update' pk=movie.pk %}">Editar</a>
+                <a href="{% url 'movie_delete' pk=movie.pk %}">Eliminar</a>
+            </li>
+        {% empty %}
+            <li>No hay películas disponibles.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'movie_create' %}" class="btn btn-dark" style="margin-bottom: 20px">Crear nueva película</a>
+{% endblock %}

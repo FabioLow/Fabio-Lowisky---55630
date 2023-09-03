@@ -1,0 +1,70 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %} Bienvenido {% endblock %}
+
+{% block content %}
+<style>
+    .rounded-circle-img {
+        height: 250px; 
+        width: 350px; 
+    }
+</style>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2 class="display-4">Descubre nuestras películas</h2>
+                <p class="lead">Sumérgete en el emocionante mundo del cine.</p>
+            </div>
+            <div class="col-lg-6">
+                <img class="img-fluid rounded-circle rounded-circle-img" src="{% static 'core/assets/home_movie_image.jpg' %}">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-light py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <img class="img-fluid rounded-circle rounded-circle-img" src="{% static 'core/assets/home_series_image.jpg' %}">
+            </div>
+            <div class="col-lg-6">
+                <h2 class="display-4">Explora nuestras series</h2>
+                <p class="lead"> Disfruta de emocionantes historias y episodios.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2 class="display-4">Lee nuestros libros</h2>
+                <p class="lead"> Sientate y hojea la mejor literatura.</p>
+            </div>
+            <div class="col-lg-6">
+                <img class="img-fluid rounded-circle rounded-circle-img" src="{% static 'core/assets/home_book_image.jpg' %}">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-light py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <img class="img-fluid rounded-circle rounded-circle-img" src="{% static 'core/assets/home_comic_image.jpg' %}">
+            </div>
+            <div class="col-lg-6">
+                <h2 class="display-4">Conoce nuestros comics</h2>
+                <p class="lead"> Adentrate en el mundo de los comics.</p>
+            </div>
+        </div>
+    </div>
+</section>
+</style>
+{% endblock %}

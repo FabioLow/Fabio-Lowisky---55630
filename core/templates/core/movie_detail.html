@@ -1,0 +1,13 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Detalle de Película - {{ movie.title }}{% endblock %}
+
+{% block content %}
+<h1>{{ movie.title }}</h1>
+<p>Descripción: {{ movie.description }}</p>
+<p>Año de lanzamiento: {{ movie.release_year }}</p>
+
+<a href="{% url 'movie_list' %}">Volver a la lista de películas</a>
+<a href="{% url 'movie_update' pk=movie.pk %}">Editar película</a>
+<a href="{% url 'movie_delete' pk=movie.pk %}">Eliminar película</a>
+{% endblock %}

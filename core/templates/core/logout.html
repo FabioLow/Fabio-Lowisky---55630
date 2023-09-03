@@ -1,0 +1,23 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Cerrar Sesión{% endblock %}
+
+{% block content %}
+  <h2>Cerrar Sesión</h2>
+
+  <!-- Mensajes -->
+  {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  <p>¿Estás seguro de que deseas cerrar sesión?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Cerrar Sesión</button>
+  </form>
+  <a href="{% url 'login' %}">Cancelar</a>
+{% endblock %}

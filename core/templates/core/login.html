@@ -1,0 +1,26 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Iniciar Sesión{% endblock %}
+
+{% block content %}
+  <h2>Iniciar Sesión</h2>
+
+  <!-- Mensajes: (no me anda :( )) -->
+  {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    {{ form.username.label_tag }} {{ form.username }}
+    <br>
+    {{ form.password.label_tag }} {{ form.password }}
+    <br>
+    <button type="submit">Iniciar Sesión</button>
+  </form>
+  <a href="{% url 'register' %}">¿No tienes una cuenta? Regístrate aquí.</a>
+{% endblock %}

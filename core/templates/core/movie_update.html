@@ -1,0 +1,12 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<h2>Actualizar Película</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit">Guardar Cambios</button>
+</form>
+<a href="{% url 'movie_list' %}">Volver a la lista de películas</a>
+{% endblock %}

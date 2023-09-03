@@ -1,0 +1,35 @@
+<!-- core/templates/core/book_list.html -->
+
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Lista de Libros{% endblock %}
+
+{% block content %}
+    <h1>Lista de Libros</h1>
+    <!-- Book search form -->
+    <form method="GET" action="{% url 'book_list' %}">
+        <input type="text" name="q" placeholder="Buscar libros">
+        <button type="submit">Buscar</button>
+    </form>
+
+    <!-- Display search results count and search query if a search query is provided -->
+    {% if request.GET.q %}
+        <p>{{ books|length }} resultados para "{{ request.GET.q }}"</p>
+    {% endif %}
+
+    <ul>
+        {% for book in books %}
+            <li>
+                <a href="{% url 'book_detail' pk=book.pk %}">{{ book.title }}</a>
+                - Año de lanzamiento: {{ book.release_year }}
+                <a href="{% url 'book_update' pk=book.pk %}">Editar</a>
+                <a href="{% url 'book_delete' pk=book.pk %}">Eliminar</a>
+            </li>
+        {% empty %}
+            <li>No se encontraron libros que coincidan con la búsqueda.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'book_create' %}" class="btn btn-dark" style="margin-bottom: 20px"">Crear nuevo libro</a>
+{% endblock %}

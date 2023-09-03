@@ -1,0 +1,35 @@
+
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Lista de Series{% endblock %}
+
+{% block content %}
+    <h1>Lista de Series</h1>
+    <!-- Busqueda-->
+    <form method="GET" action="{% url 'series_list' %}">
+        <input type="text" name="q" placeholder="Buscar series">
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if request.GET.q %}
+        <p>{{ series|length }} resultados para "{{ request.GET.q }}"</p>
+    {% endif %}
+
+    <ul>
+        {% for series in series %}
+            <li>
+                <a href="{% url 'series_detail' pk=series.pk %}">{{ series.title }}</a>
+                - Año de lanzamiento: {{ series.release_year }}
+                <a href="{% url 'series_update' pk=series.pk %}">Editar</a>
+                <a href="{% url 'series_delete' pk=series.pk %}">Eliminar</a>
+            </li>
+        {% empty %}
+            <li>No se encontraron series que coincidan con la búsqueda.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'series_create' %}" class="btn btn-dark" style="margin-bottom: 20px">Crear nueva serie</a>
+    <br>
+
+{% endblock %}

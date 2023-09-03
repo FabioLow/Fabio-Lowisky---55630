@@ -1,0 +1,13 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Detalle de Serie - {{ series.title }}{% endblock %}
+
+{% block content %}
+    <h1>{{ series.title }}</h1>
+    <p>Descripción: {{ series.description }}</p>
+    <p>Año de lanzamiento: {{ series.release_year }}</p>
+
+    <a href="{% url 'series_list' %}">Volver a la lista de series</a>
+    <a href="{% url 'series_update' pk=series.pk %}">Editar serie</a>
+    <a href="{% url 'series_delete' pk=series.pk %}">Eliminar serie</a>
+{% endblock %}

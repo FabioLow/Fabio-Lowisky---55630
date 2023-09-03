@@ -1,0 +1,11 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+  <h2>Actualizar Cómic</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar Cambios</button>
+  </form>
+  <a href="{% url 'comic_list' %}">Volver a la lista de cómics</a>
+{% endblock %}
